@@ -4,18 +4,19 @@ const form = document.querySelector('.feedback-form');
 const emailInput = form.elements.email;
 const messageInput = form.elements.message;
 
-const formData = {
+let formData = {
   email: '',
   message: '',
 };
+
 loadInform();
 
 function loadInform() {
   const savedData = localStorage.getItem(STORAGE_KEY);
   if (savedData) {
     formData = JSON.parse(savedData);
-    emailField.value = formData.email || '';
-    messageField.value = formData.message || '';
+    emailInput.value = formData.email || '';
+    messageInput.value = formData.message || '';
   }
 }
 form.addEventListener('input', event => {
